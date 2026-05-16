@@ -1,5 +1,5 @@
 {
-  "name": "LionXsec",
+  "name": "LionXsec Tunnel",
   "build": {
     "dockerfile": "./Dockerfile",
     "context": "."
@@ -14,11 +14,11 @@
   },
   "postAttachCommand": {
     "public": "gh codespace ports visibility 443:public -c $CODESPACE_NAME",
-    "xray": "while true; do sudo /usr/local/bin/xray -c /etc/config.json; sleep 3; done"
+    "xray": "sudo /usr/local/bin/xray-keepalive"
   },
   "portsAttributes": {
     "443": {
-      "label": "LionXsec",
+      "label": "LionXsec-VPN",
       "protocol": "http",
       "onAutoForward": "silent"
     }
